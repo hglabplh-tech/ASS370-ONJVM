@@ -1,1 +1,4 @@
 /ASS370-ONJVM.iml
+/.idea/
+/target/
+/pom.xml
