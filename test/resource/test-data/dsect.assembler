@@ -1,0 +1,19 @@
+ASEMBLY2 CSECT
+         USING           *,15
+         USING           INAREA,3
+         CLI             INCODE,C'A'
+         BE              ATYPE
+         MVC             OUTPUTA,DATA_B
+         MVC             OUTPUTB,DATA_A
+         B               FINISH
+ATYPE    DS              0H
+         MVC             OUTPUTA,DATA_A
+         MVC             OUTPUTB,DATA_B
+FINISH   BR              14
+DATA_A   DC              CL8'ADATA'
+DATA_B   DC              CL8'BDATA'
+INAREA   DSECT
+INCODE   DS              CL1
+OUTPUTA  DS              CL8
+OUTPUTB  DS              CL8
+         END
