@@ -23,7 +23,7 @@
                    Bits | 33-63 | IA | Instruction address"}
 
 (defn get-cc[value]
-  (bit-and (aget value 2)  255) )
+  (bit-and (aget value 2)  2r00001100) )
 (defn set-cc-equal[value]
   (let [cc-byte (bit-clear (aget value 2)  2)
         cc-byte (bit-clear cc-byte  3)]
