@@ -20,10 +20,18 @@
 
       ]
 
-  (assert-any "Error" (is (= 0 element-equal) "The value of cc should now be 243"))
-  (assert-any "Error" (is (= 4 element-cc-low-set) "The value of cc should now be 247"))
-  (assert-any "Error" (is (= 8 element-cc-high-set) "The value of cc should now be 251"))
-  (assert-any "Error" (is (= 12 element-overflow) "The value of cc should now be 12"))
+  (assert-any "Error" (is (= 0 element-equal)
+                          "The value of cc should now be (equal) 0"))
+  (assert-any "Error" (is (= 4 element-cc-low-set)
+                          "The value of cc should now be (low-set) 4"))
+  (assert-any "Error" (is (= 4 element-cc-high-clear)
+                          "The value of cc should now be (high-clear) 4"))
+  (assert-any "Error" (is (= 8 element-cc-high-set)
+                          "The value of cc should now be (high-set) 8"))
+  (assert-any "Error" (is (= 8 element-cc-low-clear)
+                          "The value of cc should now be (low-clear) 8"))
+  (assert-any "Error" (is (= 12 element-overflow)
+                          "The value of cc should now be (overflow) 12"))
 
                        ))
 
