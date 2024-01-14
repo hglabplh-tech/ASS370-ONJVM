@@ -1,4 +1,4 @@
-(ns hgp.ass370.lang.mnem_to_opform-tables)
+(ns hgp.general.opcodes-and-regs-hex)
 
 ^{:doc "Here the opcodes of ASM370 are defined by Name and 'HEX code"}
 (def BALR 0x05)
