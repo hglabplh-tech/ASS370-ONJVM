@@ -13,7 +13,8 @@
    [org.ow2.asm/asm-analysis "9.6"]
    [org.clojure/core.async "1.6.681"]
    [de.active-group/active-clojure "0.42.2"]
-   [clojure-interop/apache-commons-io "1.0.0"]]
+   [clojure-interop/apache-commons-io "1.0.0"]
+   [ hgp.genbytec/JVMByteCodeGenerator "1.0.0-SNAPSHOT"]]
   :source-paths ["src"]
   :java-source-paths ["src/main/java"]                      ; Java source is stored separately.
   :test-paths ["test/clj"]
