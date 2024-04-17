@@ -24,5 +24,19 @@ public class VMMemory {
             Arrays.fill(this.storage, Byte.valueOf("0"));
         }
 
+        byte [] readAreaFromMem (long startAddress, long endAddress) {
+            byte [] tempBuffer = new byte[(int)(endAddress - startAddress) + 1];
+            System.arraycopy(this.storage, (int)startAddress, tempBuffer,
+                    0, (int)((endAddress - startAddress) + 1));
+            return tempBuffer;
+        }
+
+        byte [] writeAreaToMem (byte [] buffer, long startAddress) {
+
+            System.arraycopy(buffer, 0, this.storage,
+                    (int)startAddress, buffer.length);
+            return buffer;
+        }
+
     }
 }
