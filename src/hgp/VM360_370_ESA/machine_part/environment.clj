@@ -1,6 +1,6 @@
 (ns hgp.VM360-370-ESA.machine-part.environment
   (:require [hgp.VM360-370-ESA.machine-part.opcodes-and-regs-hex :as codes]
-            [hgp.VM360-370-ESA.machine-part.psw-utils :as pu])
+            [hgp.VM360-370-ESA.machine-part.psw-sutils :as pu])
   (:import ((java.util Arrays)
             (ass370.utils VMMemory))
   ))
@@ -15,7 +15,9 @@
 (def psw-init-fun (gensym "psw-init"))
 ;;TODO next will be the registers
 (defn vm-env []
-  (let [storage (VMMemory. 1024 * 2048 * 2048)
+  (let [storage (atom (VMMemory. 1024 * 2048 * 2048))
+        opcodes codes/mnemonic_to_code
+        regs-def codes/base-regs-to-hex
         psw (atom {'p-stat-word (byte-array 8)})
         base-regs (atom {codes/R0 (byte-array 4) codes/R1 (byte-array 4)
                          codes/R2 (byte-array 4) codes/R3 (byte-array 4)
@@ -29,8 +31,8 @@
         free (fn [key] (swap! storage dissoc key))          ;; rewrite
         get-store-from-map (fn [address] (get @storage address) ) ;; rewrite
         psw-init (fn [] (pu/init-psw (get  @psw 'p-stat-word )) @psw)
-        load-reg
-        stor-reg
+        load-reg (fn [reg stor] ())
+        stor-reg (fn [stor reg])
         manipulate (fn [cmd & args]
                  (cond (= cmd alloc-fun)
                        (alloc (first args))
