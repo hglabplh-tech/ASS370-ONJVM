@@ -19,6 +19,7 @@ public class VMMemory {
 
         private final Byte[] storage;
 
+
         public MEMDataSource(Integer storSize) {
             storage = new Byte[storSize];
             Arrays.fill(this.storage, Byte.valueOf("0"));
@@ -37,6 +38,19 @@ public class VMMemory {
                     (int)startAddress, buffer.length);
             return buffer;
         }
+
+        byte [] loadRegister(byte [] register, int storageAddress) {
+            System.arraycopy(this.storage, storageAddress, register,
+                    0, register.length);
+            return register;
+        }
+
+        byte [] storeRegister(byte [] register, int storageAddress) {
+            System.arraycopy(register, 0, this.storage,
+                    storageAddress, register.length);
+            return register;
+        }
+
 
     }
 }
