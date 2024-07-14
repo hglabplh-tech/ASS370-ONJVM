@@ -1,7 +1,8 @@
 (ns hgp.ass370.lang.format-ops-table)
 
 (def op-form-RR (gensym "RR"))
-(def op-form-RX (gensym "RX"))
+(def op-form-RX-a (gensym "RX-a"))
+(def op-form-RX-b (gensym "RX-b"))
 (def op-form-RI (gensym "RI"))
 
 (def op-form-I (gensym "I"))
@@ -41,35 +42,35 @@
    "DR"    op-form-RR
    "ALR"   op-form-RR
    "SLR"   op-form-RR
-   "STH"   op-form-RX
-   "LA"    op-form-RX
-   "STC"   op-form-RX
-   "IC"    op-form-RX
-   "EX"    op-form-RX
-   "BAL"   op-form-RX
-   "BCT"   op-form-RX
-   "BC"    op-form-RX
-   "LH"    op-form-RX
-   "CH"    op-form-RX
-   "AH"    op-form-RX
-   "SH"    op-form-RX
-   "MH"    op-form-RX
-   "BAS"   op-form-RX
-   "CVD"   op-form-RX
-   "CVB"   op-form-RX
-   "ST"    op-form-RX
-   "N"     op-form-RX
-   "CL"    op-form-RX
-   "O"     op-form-RX
-   "X"     op-form-RX
-   "L"     op-form-RX
-   "C"     op-form-RX
-   "A"     op-form-RX
-   "S"     op-form-RX
-   "M"     op-form-RX
-   "D"     op-form-RX
-   "AL"    op-form-RX
-   "SL"    op-form-RX
+   "STH"   op-form-RX-a
+   "LA"    op-form-RX-a
+   "STC"   op-form-RX-a
+   "IC"    op-form-RX-a
+   "EX"    op-form-RX-a
+   "BAL"   op-form-RX-a
+   "BCT"   op-form-RX-a
+   "BC"    op-form-RX-a
+   "LH"    op-form-RX-a
+   "CH"    op-form-RX-a
+   "AH"    op-form-RX-a
+   "SH"    op-form-RX-a
+   "MH"    op-form-RX-a
+   "BAS"   op-form-RX-a
+   "CVD"   op-form-RX-a
+   "CVB"   op-form-RX-a
+   "ST"    op-form-RX-a
+   "N"     op-form-RX-a
+   "CL"    op-form-RX-a
+   "O"     op-form-RX-a
+   "X"     op-form-RX-a
+   "L"     op-form-RX-a
+   "C"     op-form-RX-a
+   "A"     op-form-RX-a
+   "S"     op-form-RX-a
+   "M"     op-form-RX-a
+   "D"     op-form-RX-a
+   "AL"    op-form-RX-a
+   "SL"    op-form-RX-a
    "BXH"   op-form-RS
    "BXLE"  op-form-RS
    "SRL"   op-form-RS
@@ -115,4 +116,3 @@
    "SP"    op-form-SS-b
    "MP"    op-form-SS-b
    "DP"    op-form-SS-b})
-

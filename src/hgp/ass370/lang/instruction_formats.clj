@@ -3,7 +3,6 @@
             [hgp.general.opcodes-and-regs-hex :as codes]
             [hgp.ass370.lang.format-ops-table :as fot]))
 
-(def balr-ex "BALR  R12,R0")
 
 (def two-rand-delimiter "#-#ff")
 (defn perl-split-on-space [s]
@@ -47,7 +46,8 @@
 
 
 ;; RS Format example (CLM) --> Form 1
-;; later we have o define a way of parsing which respects that there may be no '(' or ')'
+;; later we have o define a way of parsing which respects
+;; that there may be no '(' or ')'
 (defn do-rs-f1 [expr]
   (let [temp (str/replace expr #"," " ")
         vector (perl-split-on-space temp)
@@ -57,6 +57,7 @@
         reg-2 (get-in [vector] 0  2)]
     [opcode reg-1 reg-2 sub-expr]
   ))
+
 ;; I Format (SVC)
 (defn tok-i [stmt]
   (let [[op-code code] stmt
@@ -73,8 +74,12 @@
     (byte-array [m-op m-r1 m-r2])
     ))
 
+(defn tok-rx-a [stmt]
+  (let )
+  )
+
 ;; RX Format example (LA)
-(defn do-rx [stmt]
+(defn do-rx-a [stmt]
   (let [[op-code reg address reg-index reg-base] stmt
         m-op (codes/get-code op-code)
         m-reg  (codes/get-base-reg reg)
@@ -115,7 +120,8 @@
 
 (def format-to-fun
   {fot/op-form-RR [do-rr tok-rr]
-   fot/op-form-RX [do-rx nil]
+   fot/op-form-RX-a [do-rx-a nil]
+   fot/op-form-RX-b [nil nil]
    fot/op-form-I [do-i tok-i]
    fot/op-form-RS [do-rs-f1 tok-rs]
    fot/op-form-SS [nil nil]
@@ -123,16 +129,4 @@
    fot/op-form-SS-b [nil nil]
    fot/op-form-SS-c [nil nil]
    fot/op-form-SI [nil nil]})
-
-
-
-
-
-
-(defn testit [cmd-arr]
-  (println (aget cmd-arr 0))
-  (println (aget cmd-arr 1))
-  (println (aget cmd-arr 2))
-  )
-(testit (tok-rr (do-rr balr-ex)) )
 

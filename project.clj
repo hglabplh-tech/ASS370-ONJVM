@@ -15,12 +15,15 @@
    [de.active-group/active-clojure "0.42.2"]
    [de.active-group/active-data "0.2.0-SNAPSHOT"]
    [clojure-interop/apache-commons-io "1.0.0"]
+   [com.ibm.icu/icu4j "75.1"]
+   [com.ibm.icu/icu4j-charset "75.1"]
    [ hgp.genbytec/JVMByteCodeGenerator "1.0.0-SNAPSHOT"]]
   :source-paths ["src"]
   :java-source-paths ["src/main/java"]                      ; Java source is stored separately.
   :test-paths ["test/clj"]
   :resource-paths ["resource"]
   :dev {:resource-paths "test/resource"}
+
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled"
                                     "resources/public/cljs-out" :target-path]
