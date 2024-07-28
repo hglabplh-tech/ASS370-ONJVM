@@ -1,4 +1,6 @@
-(ns hgp.VM360-370-ESA.char-set.encode-ebcdic)
+(ns hgp.VM360-370-ESA.char-set.encode-ebcdic-utf8
+  (:import (com.ibm.icu.lang UCharacterEnums$ECharacterCategory)
+           (java.nio.charset Charset)))
 
 
 ;;BM01142	Cp1142	1142 cp1142 cp01142 ccsid01142 ebcdic-no-277+euro ebcdic-dk-277+euro	Variant of Cp277 with Euro character
@@ -135,6 +137,7 @@
    0x80 0x3F                                                ;;'NOT-DEF]
    })
 
+
 (def utf8->ebcdic
 {
  0x20    0x40
@@ -233,3 +236,31 @@
  0x7E    0xA1
  0xC2A5  0xE0
  })
+
+(def icu-ebcidic-ge
+  "ibm-1141_P100-1997")
+
+(def icu-ebcidic-central-eu
+  "ibm-1156_P100-1999")
+
+(def icu-ebcidic-japan
+  "ibm-16684_P110-2003")
+
+(def icu-ebcidic-chinese
+  "ibm-4933_P100-2002")
+
+(def icu-ebcidic-us
+  "ibm-1148_P100-1997")
+
+(def icu-ebcidic-hebrew
+  "ibm-12712_P100-1998")
+
+(def icu-ebcidic-arabic
+  "ibm-420_X120-1999")
+
+(def icu-ebcidic-belgium-suiss
+  "ibm-500_P100-1995")
+
+(defn set-default-set [set-name]
+  (System/setProperty "file.encoding" set-name)
+  (Charset/defaultCharset))

@@ -1,5 +1,6 @@
 (ns hgp.ass370.compile.370-bin.map_to_370_CPU_Code
-  (:require [hgp.ass370.compile.370-bin.internal-inst-forms :refer :all]))
+  (:require [hgp.ass370.compile.370-bin.internal-inst-forms :refer :all]
+            [hgp.ass370.compile.370-bin.bit-utils :refer :all]))
 
 ;; From Material of International Business Machines Corporation
 
@@ -87,9 +88,15 @@
 ;;Author: Harald Glab-Plhak -> translate to real binary format for 390 ESA CPU's
 
 (defn create-rr-form [input-bytes]
-
-  )
+  (let [[op reg1 reg2] input-bytes
+        ]
+    (bytes [op
+            (bit-or
+              (calc-half-byte-high reg1)
+              (calc-half-byte-low reg2))])
+    ))
 
 (defn create-i-form [input-bytes]
-
-  )
+  (let [[op val] input-bytes]
+    (bytes [op val])
+  ))

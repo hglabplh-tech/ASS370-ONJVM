@@ -13,7 +13,7 @@
    [org.ow2.asm/asm-analysis "9.6"]
    [org.clojure/core.async "1.6.681"]
    [de.active-group/active-clojure "0.42.2"]
-   [de.active-group/active-data "0.2.0-SNAPSHOT"]
+   [de.active-group/active-data "0.2.1"]
    [clojure-interop/apache-commons-io "1.0.0"]
    [com.ibm.icu/icu4j "75.1"]
    [com.ibm.icu/icu4j-charset "75.1"]

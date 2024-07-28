@@ -62,7 +62,7 @@
 (defn tok-i [stmt]
   (let [[op-code code] stmt
         m-op (codes/get-code op-code)]
-    (byte-array [m-op code])
+    [m-op code]
     ))
 
 ;; RR Format (opcode op1/reg , op2/reg)
@@ -87,7 +87,7 @@
         m-index  (codes/get-base-reg reg-index)
         m-base (codes/get-base-reg reg-base)
         ]
-    (byte-array [m-op m-reg m-addr m-index m-base])
+    [m-op m-reg m-addr m-index m-base]
     ))
 
 ;; RS Format example (CLM)
