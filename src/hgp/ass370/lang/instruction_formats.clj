@@ -74,13 +74,26 @@
     (byte-array [m-op m-r1 m-r2])
     ))
 
-(defn tok-rx-a [stmt]
-  (let )
-  )
+(defn do-rx-a [expr]
+  (let [
+        temp (str/replace expr #"," " ")
+        vector (perl-split-on-space temp)
+        opcode (get-in [vector] 0  0)
+        target-reg (get-in [vector] 0  1)
+        addr-part-one (get-in [vector] 0  2)
+        addr-temp (str/replace addr-part-one #"(" " ")
+        addr-vect (perl-split-on-space addr-temp)
+        displacement (get-in [addr-vect] 0  0)
+        idx (get-in [addr-vect] 0  1)
+        addr-part-two (get-in [vector] 0  3)
+        base-reg (str/replace-by addr-part-two #")" "")
+        ]
+    [opcode target-reg]
+    ))
 
-;; RX Format example (LA)
-(defn do-rx-a [stmt]
-  (let [[op-code reg address reg-index reg-base] stmt
+;; RX Format example (LA)&R// LA R1,D2(X2,B2)
+(defn tok-rx-a [stmt]
+  (let [[op-code re'VVV$V address reg-index reg-base] stmt
         m-op (codes/get-code op-code)
         m-reg  (codes/get-base-reg reg)
         m-addr address
@@ -91,7 +104,7 @@
     ))
 
 ;; RS Format example (CLM)
-(defn tok-rs [stmt]
+(defn tok-rs-f1 [stmt]
   (let [[op-code reg1 reg2 sub-expr] stmt
         m-op (codes/get-code op-code)
         m-r1  (codes/get-base-reg reg1)
@@ -120,10 +133,10 @@
 
 (def format-to-fun
   {fot/op-form-RR [do-rr tok-rr]
-   fot/op-form-RX-a [do-rx-a nil]
+   fot/op-form-RX-a [do-rx-a tok-rx-a]
    fot/op-form-RX-b [nil nil]
    fot/op-form-I [do-i tok-i]
-   fot/op-form-RS [do-rs-f1 tok-rs]
+   fot/op-form-RS [do-rs-f1 tok-rs-f1]
    fot/op-form-SS [nil nil]
    fot/op-form-SS-a [nil nil]
    fot/op-form-SS-b [nil nil]

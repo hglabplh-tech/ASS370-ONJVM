@@ -88,8 +88,7 @@
 ;;Author: Harald Glab-Plhak -> translate to real binary format for 390 ESA CPU's
 
 (defn create-rr-form [input-bytes]
-  (let [[op reg1 reg2] input-bytes
-        ]
+  (let [[op reg1 reg2] input-bytes]
     (bytes [op
             (bit-or
               (calc-half-byte-high reg1)
