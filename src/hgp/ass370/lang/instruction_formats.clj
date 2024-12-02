@@ -1,3 +1,8 @@
+;;
+;;
+;;
+;;
+
 (ns hgp.ass370.lang.instruction_formats
   (:require [clojure.string :as str]
             [hgp.general.opcodes-and-regs-hex :as codes]
@@ -93,7 +98,7 @@
 
 ;; RX Format example (LA)&R// LA R1,D2(X2,B2)
 (defn tok-rx-a [stmt]
-  (let [[op-code re'VVV$V address reg-index reg-base] stmt
+  (let [[op-code reg address reg-index reg-base] stmt
         m-op (codes/get-code op-code)
         m-reg  (codes/get-base-reg reg)
         m-addr address

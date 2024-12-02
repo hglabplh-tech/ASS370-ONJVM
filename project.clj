@@ -17,6 +17,7 @@
    [clojure-interop/apache-commons-io "1.0.0"]
    [com.ibm.icu/icu4j "75.1"]
    [com.ibm.icu/icu4j-charset "75.1"]
+   [clojure-lanterna "0.9.8"]
    [ hgp.genbytec/JVMByteCodeGenerator "1.0.0-SNAPSHOT"]]
   :source-paths ["src"]
   :java-source-paths ["src/main/java"]                      ; Java source is stored separately.

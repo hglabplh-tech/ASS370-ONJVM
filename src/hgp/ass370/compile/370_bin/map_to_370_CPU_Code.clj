@@ -88,11 +88,11 @@
 ;;Author: Harald Glab-Plhak -> translate to real binary format for 390 ESA CPU's
 
 (defn create-rr-form [input-bytes]
+  (:doc "create a RR out of a three bytes array
+  ((first byte op-code) (second byte (low-half first-R)(high-half second-R)))")
   (let [[op reg1 reg2] input-bytes]
     (bytes [op
-            (bit-or
-              (calc-half-byte-high reg1)
-              (calc-half-byte-low reg2))])
+            (get-regs-byte reg1 reg2)])
     ))
 
 (defn create-i-form [input-bytes]

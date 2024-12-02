@@ -14,13 +14,40 @@
 ;;Skips to the beginning of the next line (printing only)
 (def EM 0x19)
 ;;End of print job (printing only)
+(def NUL 0x00)
+(def FF 0x0C)
+
+
+;;Field Command and Attribute Definitions
+
+;; EBCDIC code  for the field
+
+;;Start of a new field
 (def SF 0x1D)
-;;Start of a new field (see below)
+
+;;Start of a new field extended
 (def SFE 0x29)
-;;Start of a new field (see below)
+
+;;Set Buffer Address (SBA) X'11'
+(def SBA 0x11)
+
+;;Set Attribute (SA) X'28' Note
+(def SA 0x28)
+;;Modify Field (MF) X'2C' Note
+(def MF 0x2C)
+;;Insert Cursor (IC) X'13' X'13'
+(def IC 0x13)
+;;Program Tab (PT) X'O5' X'09'
+(def PT 0x05)
+;;Repeat to Address (RA) X'3C' X'14'
+(def RA 0x3C)
+;;Erase Unprotected to Address (EUA) X'12' X'12'
+(def EUA 0x12)
+;;Graphic Escape (GE) X'08' Note
+(def GE 0x08)
 
 
-;;3270 I/O Command
+;;3270 I/O Commands
 
 ;;CCW op-code (EXCP), EBCDIC (SNA), ASCII (SNA)
 (def not-applicapable 0xFF)
